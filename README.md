@@ -48,15 +48,25 @@ The data_falcon9 Pandas dataframe now contains the following columns:
 
 
 ### Webscraping wiki pages
-BeautifulSoup will be used to scrape html tables that contain useful launch data for Falcon 9 rockets. 
-Data will be parsed and converted to a Pandas dataframe
+Use web scraping to collect Falcon 9 historical launch records from a Wikipedia page titled `List of Falcon 9 and Falcon Heavy launches`
+https://en.wikipedia.org/wiki/List_of_Falcon_9_and_Falcon_Heavy_launches
+
+For consistency, we will scrape the data from a snapshot of the List of Falcon 9 and Falcon Heavy launches Wikipage updated on 9th June 2021
+`static_url = "https://en.wikipedia.org/w/index.php?title=List_of_Falcon_9_and_Falcon_Heavy_launches&oldid=1027686922"`
+
+Tasks:
+1.  Request the Falcon9 Launch Wiki page from its URL
+2.  Extract all column/variable names from the HTML table header
+3.  Create a data frame by parsing the launch HTML tables
+
+The output of this stage is the CSV file: spacex_web_scraped.csv
 
 ## Data wrangling
 Looking at the data_falcon9 dataframe, the following columns have null values:
 - PayloadMass
 We calculate the mean of the PayloadMass column, and replace all null values with the mean.
 
-The data is exported as a csv file: dataset_part_1.csv
+The API data is exported as a csv file: dataset_part_1.csv
 
 ## Exploratory analysis using SQL
 
