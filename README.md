@@ -103,6 +103,19 @@ Landing Class:
 Data from this process is exported to CSV as dataset_part_2.csv
 
 ## Exploratory analysis using SQL
+In this section we will understand the Spacex DataSet, load it  into the corresponding table in a Db2 database, and execute SQL queries to answer assignment questions.
+
+Tasks:
+1. Display the names of the unique launch sites in the space mission
+2. Display 5 records where launch sites begin with the string 'CCA'
+3. Display the total payload mass carried by boosters launched by NASA (CRS)
+4. Display average payload mass carried by booster version F9 v1.1¶
+5. List the date when the first succesful landing outcome in ground pad was acheived.
+6. List the names of the boosters which have success in drone ship and have payload mass greater than 4000 but less than 6000
+7. List the total number of successful and failure mission outcomes
+8. List the names of the booster_versions which have carried the maximum payload mass. Use a subquery
+9. List the records which will display the month names, failure landing_outcomes in drone ship ,booster versions, launch_site for the months in year 2015.
+10. Rank the count of landing outcomes (such as Failure (drone ship) or Success (ground pad)) between the date 2010-06-04 and 2017-03-20, in descending order.
 
 ## Exploratory analysis using Pandas and Matplotlib
 
