@@ -9,11 +9,6 @@ A new rocket company, Space Y, wants to compete with SpaceX. In this project we 
 SpaceX advertises Falcon 9 rocket launches on its website with a cost of 62 million dollars; other providers cost upward of 165 million dollars each, much of the savings is because SpaceX can reuse the first stage. Therefore if we can determine if the first stage will land, we can determine the cost of a launch. This information can be used if an alternate company wants to bid against SpaceX for a rocket launch.
 
 ## Collecting the data
-Tasks:
-1. Request and parse the SpaceX launch data using the GET request
-2. Filter the dataframe to only include Falcon 9 launches
-3. Dealing with Missing Values
-
 ### SpaceX API
 We will be using launch data from the SpaceX REST API.
 The endpoint we are using: https://api.spacexdata.com/v4/launches/past 
@@ -21,11 +16,10 @@ The endpoint we are using: https://api.spacexdata.com/v4/launches/past
 Responses are given as a list of json objects. Each json object represents a launch. 
 We will normalise the json into a flat table. 
 
-**Helper functions**
-- getBoosterVersion(data): Takes the dataset and uses the rocket column to call the API and append the data to the list
-- getLaunchSite(data): Takes the dataset and uses the launchpad column to call the API and append the data to the list
-- getPayloadData(data): Takes the dataset and uses the payloads column to call the API and append the data to the lists
-- getCoreData(data): Takes the dataset and uses the cores column to call the API and append the data to the lists
+Tasks:
+1. Request and parse the SpaceX launch data using the GET request
+2. Filter the dataframe to only include Falcon 9 launches
+3. Dealing with Missing Values
 
 The data_falcon9 Pandas dataframe now contains the following columns:
 - FlightNumber
@@ -46,6 +40,11 @@ The data_falcon9 Pandas dataframe now contains the following columns:
 - Longitude
 - Latitude
 
+Looking at the data_falcon9 dataframe, the following columns have null values:
+- PayloadMass
+We calculate the mean of the PayloadMass column, and replace all null values with the mean.
+
+The API data is exported as a csv file: dataset_part_1.csv
 
 ### Webscraping wiki pages
 Use web scraping to collect Falcon 9 historical launch records from a Wikipedia page titled `List of Falcon 9 and Falcon Heavy launches`
@@ -62,11 +61,46 @@ Tasks:
 The output of this stage is the CSV file: spacex_web_scraped.csv
 
 ## Data wrangling
-Looking at the data_falcon9 dataframe, the following columns have null values:
-- PayloadMass
-We calculate the mean of the PayloadMass column, and replace all null values with the mean.
+In this section, we will perform an exploratory data analysis and also determine training labels
 
-The API data is exported as a csv file: dataset_part_1.csv
+Tasks:
+1. Calculate the number of launches on each site
+2. Calculate the number and occurrence of each orbit
+3. Calculate the number and occurence of mission outcome of the orbits
+4. Create a landing outcome label from Outcome column
+
+Number of launches for each site:
+CCAFS SLC 40    55
+KSC LC 39A      22
+VAFB SLC 4E     13
+
+Number and occurrence of each orbit:
+GTO      27
+ISS      21
+VLEO     14
+PO        9
+LEO       7
+SSO       5
+MEO       3
+ES-L1     1
+HEO       1
+SO        1
+GEO       1
+
+Number of landing outcomes:
+True ASDS      41
+None None      19
+True RTLS      14
+False ASDS      6
+True Ocean      5
+False Ocean     2
+None ASDS       2
+False RTLS      1
+
+Landing Class:
+[0, 0, 0, 0, 0, 0, 1, 1, 0, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1, 1, 1, 1, 1, 0, 1, 1, 0, 1, 1, 0, 1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 1, 1, 0, 0, 1, 1, 1, 1, 1, 1, 1, 0, 0, 1, 1, 1, 1, 1, 1, 0, 1, 1, 1, 1, 0, 1, 0, 1, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1]
+
+Data from this process is exported to CSV as dataset_part_2.csv
 
 ## Exploratory analysis using SQL
 
