@@ -69,37 +69,6 @@ Tasks:
 3. Calculate the number and occurence of mission outcome of the orbits
 4. Create a landing outcome label from Outcome column
 
-Number of launches for each site:
-CCAFS SLC 40    55
-KSC LC 39A      22
-VAFB SLC 4E     13
-
-Number and occurrence of each orbit:
-GTO      27
-ISS      21
-VLEO     14
-PO        9
-LEO       7
-SSO       5
-MEO       3
-ES-L1     1
-HEO       1
-SO        1
-GEO       1
-
-Number of landing outcomes:
-True ASDS      41
-None None      19
-True RTLS      14
-False ASDS      6
-True Ocean      5
-False Ocean     2
-None ASDS       2
-False RTLS      1
-
-Landing Class:
-[0, 0, 0, 0, 0, 0, 1, 1, 0, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1, 1, 1, 1, 1, 0, 1, 1, 0, 1, 1, 0, 1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 1, 1, 0, 0, 1, 1, 1, 1, 1, 1, 1, 0, 0, 1, 1, 1, 1, 1, 1, 0, 1, 1, 1, 1, 0, 1, 0, 1, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1]
-
 Data from this process is exported to CSV as dataset_part_2.csv
 
 ## Exploratory analysis using SQL
@@ -118,6 +87,15 @@ Tasks:
 10. Rank the count of landing outcomes (such as Failure (drone ship) or Success (ground pad)) between the date 2010-06-04 and 2017-03-20, in descending order.
 
 ## Exploratory analysis using Pandas and Matplotlib
+Tasks:
+1. Visualize the relationship between Payload and Orbit type
+2. Visualize the relationship between Payload and Launch Site
+3. Visualize the relationship between success rate of each orbit type
+4. Visualize the relationship between FlightNumber and Orbit type
+5. Visualize the relationship between Payload and Orbit type
+6. Visualize the launch success yearly trend
+7. Create dummy variables to categorical columns
+8. Cast all numeric columns to `float64`
 
 ## Interactive visual analytics and dashboard
 
