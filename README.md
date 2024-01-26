@@ -98,7 +98,23 @@ Tasks:
 8. Cast all numeric columns to `float64`
 
 ## Interactive visual analytics and dashboard
+1. Mark all launch sites on a map
+2. Mark the success/failed launches for each site on the map
+3. Calculate the distances between a launch site to its proximities
 
 ## Predictive analysis (classification)
+Tasks:
+1. Create a NumPy array from the column Class in data, by applying the method to_numpy() then assign it to the variable Y,make sure the output is a Pandas series (only one bracket df['name of column']).
+2. Standardize the data in X then reassign it to the variable X using the transform provided.
+3. Use the function train_test_split to split the data X and Y into training and test data. Set the parameter test_size to 0.2 and random_state to 2.
+4. Create a logistic regression object then create a GridSearchCV object logreg_cv with cv = 10. Fit the object to find the best parameters from the dictionary parameters.
+5. Calculate the accuracy on the test data using the method score
+6. Create a support vector machine object then create a GridSearchCV object svm_cv with cv - 10. Fit the object to find the best parameters from the dictionary parameters.
+7. Calculate the accuracy on the test data using the method score
+8. Create a decision tree classifier object then create a GridSearchCV object tree_cv with cv = 10. Fit the object to find the best parameters from the dictionary parameters.
+9. Calculate the accuracy of tree_cv on the test data using the method score
+10. Create a k nearest neighbors object then create a GridSearchCV object knn_cv with cv = 10. Fit the object to find the best parameters from the dictionary parameters
+11. Calculate the accuracy of knn_cv on the test data using the method score
+12. Find the method performs best.
 
 ## Final presentation
